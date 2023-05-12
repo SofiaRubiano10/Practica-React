@@ -1,16 +1,23 @@
-function App() {
- //declaración de variables
- const nombre = "Catalina";
- const edad = 21;
+// componente basado en función
+// function App() {
+//   return (
+//     <>
+//       <h1>React</h1>
+//     </>
+//   )
+// }
+// export default App
 
+// Componente basado en clase 
 
+// import { Component } from "react";
 
-  return (
-    <>
-      <h1>La estudiante {nombre} tiene {edad}</h1>
-      <h2>{edad >= 18 ? "Adulto" : "Niño"}</h2>
-    </>
-  )
-}
+// export default class App extends Component{
+//   render(){
+//     return <h1>React based on class</h1>
+//   }
+// }
 
-export default App
+// export default function App() {
+//   return <h1>React en una sola linea</h1>
+// }
