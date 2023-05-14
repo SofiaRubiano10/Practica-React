@@ -1,7 +1,8 @@
 /*eslint-disable react/prop-types*/
+import '../css/Opcion.css'
 
 const Opcion = ({texto , link}) => {
-    return <a href={link}>{texto}</a>;
+    return <a className="opcion" href={link}>{texto}</a>;
     
 }
 
