@@ -7,16 +7,15 @@ const Tareas = () => {
     {id:4, titulo: "Swimming"},
   ];
     return (
-    // <>
-    //     {listaTareas.map(tarea => (
-    //         <h4 key={tarea.id}>{tarea.titulo}</h4>
-    //     ))}
-    // </>
-    <ul>
-        {listaTareas.map(tarea => (
+    <>
+        {listaTareas.length > 0 ? (<h2>Hay {listaTareas.length} tareas</h2>) : (<h2>No hay tareas</h2>)}
+        <ul>
+            {listaTareas.map(tarea => (
             <li key={tarea.id}>{tarea.titulo}</li>
-        ))}
-    </ul>
+            ))}
+        </ul>
+    </>
+
   );
 }
 
