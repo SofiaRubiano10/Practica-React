@@ -1,10 +1,19 @@
+import PropTypes from "prop-types";
 
-const Header = () => {
+const Header = ({titulo}) => {
   return (
     <header>
-      <h1>Administrador de tareas</h1>
+      <h1>{titulo}</h1>
     </header>
   )
+}
+
+Header.defaultProps = {
+  titulo: "Task Manager",
+}
+
+Header.propTypes = {
+  titulo: PropTypes.string.isRequired,
 }
 
 export default Header
