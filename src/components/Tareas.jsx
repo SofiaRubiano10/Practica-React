@@ -1,15 +1,24 @@
+import { useState } from "react";
+
 const Tareas = () => {
-  
-  const listaTareas = [
+  //estado del componente => datos del componente
+  const [listaTareas, setListaTareas] = useState([
     {id:1, titulo: "Running"},
     {id:2, titulo: "Programing"},
     {id:3, titulo: "Reading"},
     {id:4, titulo: "Swimming"},
-  ];
-  
-    return (
+  ]);
+
+  //HOOCK STATE
+  //const [edad, setEdad] = useState(0);
+  // Estado es inmutable
+  //edad = 3;
+
+  // Modifica el estado a através de la función set
+  //setEdad(3);
+
+  return (
     <>
-      {listaTareas.length > 0 ? (<h2>Hay {listaTareas.length} tareas</h2>) : (<h2>No hay tareas</h2>)}
       <ul>
           {listaTareas.map(tarea => (
           <li className="tarea" key={tarea.id}>{tarea.titulo}</li>
