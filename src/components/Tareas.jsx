@@ -6,18 +6,9 @@ const Tareas = () => {
     {id:3, titulo: "Reading"},
     {id:4, titulo: "Swimming"},
   ];
-
-  // objeto JSON para representar el style
-  const estiloSpan = {
-    color: "lime",
-    fontStyle: "italic",
-  };
-
+  
     return (
     <>
-    {/* objetos con estilo inline */}
-      <h2 style={{color: "red", backgroundColor: "pink"}}>Lista de tareas</h2>
-      <span style={estiloSpan} >List of task</span>
       {listaTareas.length > 0 ? (<h2>Hay {listaTareas.length} tareas</h2>) : (<h2>No hay tareas</h2>)}
       <ul>
           {listaTareas.map(tarea => (

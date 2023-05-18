@@ -1,5 +1,4 @@
 // importes
-import Boton from "./components/Boton"
 import Header from "./components/Header"
 import Tareas from "./components/Tareas"
 import "./styles/style.scss"
@@ -9,14 +8,6 @@ function App() {
   <>
     <Header />
     <Tareas />
-    <Boton texto="boton1" color="yellow" />
-    <Boton texto="boton2" color="blue" />
-    <Boton texto="boton2" color="red" />
-    <ul className="countries">
-      <li>Colombia</li>
-      <li>Argentina</li>
-      <li>Chile</li>
-    </ul>
   </>
   )
 }
