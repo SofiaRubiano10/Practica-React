@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Tarea from "./Tarea";
 const Tareas = ({tareas}) => {
   //estado del componente => datos del componente
 
@@ -7,7 +8,7 @@ const Tareas = ({tareas}) => {
     <>
       <ul>
           {tareas.map(tarea => (
-          <li className="tarea" key={tarea.id}>{tarea.titulo}</li>
+          <Tarea key={tarea.id} tarea={tarea} />
           ))}
       </ul>
     </>
