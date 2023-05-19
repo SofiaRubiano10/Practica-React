@@ -1,8 +1,9 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import {FaTrashAlt} from 'react-icons/fa';
 
 const Tarea = ({tarea}) => {
   return (
-    <li className="tarea">{tarea.titulo}</li>
+    <li className="tarea">{tarea.titulo} <FaTrashAlt className="trashRoja"/> </li>
   )
 }
 

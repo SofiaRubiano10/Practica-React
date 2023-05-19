@@ -9,7 +9,7 @@ import "./styles/style.scss"
 // componente basado en función
 function App() {
   //estado del componente
-  const [tareas, setTareas] = useState([
+  const [tareas] = useState([
     {id:1, titulo: "Running"},
     {id:2, titulo: "Programing"},
     {id:3, titulo: "Reading"},

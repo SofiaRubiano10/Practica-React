@@ -6,7 +6,7 @@ const Tareas = ({tareas}) => {
 
   return (
     <>
-      <ul>
+      <ul className="tareas">
           {tareas.map(tarea => (
           <Tarea key={tarea.id} tarea={tarea} />
           ))}
