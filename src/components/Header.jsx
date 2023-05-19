@@ -2,10 +2,15 @@ import PropTypes from "prop-types";
 import Boton from "./Boton";
 
 const Header = ({titulo}) => {
+  
+  const procesarClick = () =>{
+    console.log("Click en el componente padre");
+  }
+  
   return (
     <header>
       <h1>{titulo}</h1>
-      <Boton/>
+      <Boton cuandoClick={procesarClick}/>
     </header>
   )
 }

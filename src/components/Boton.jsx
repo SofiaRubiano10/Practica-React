@@ -1,13 +1,13 @@
-function Boton() {
-  const clickHandler=(event)=>{
-    console.log("Me hicieron click");
-    console.log(event);
-  };
-  
-  
+import PropTypes from "prop-types";
+
+function Boton({cuandoClick}) {
+
     return (
-    <button onClick={clickHandler}>Click me</button>
+    <button onClick={cuandoClick}>Click me</button>
   )
 }
 
+Boton.propTypes = {
+    cuandoClick: PropTypes.func,
+}
 export default Boton
