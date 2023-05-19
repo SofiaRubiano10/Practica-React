@@ -1,14 +1,17 @@
 import PropTypes from "prop-types";
 import Tarea from "./Tarea";
 const Tareas = ({tareas}) => {
-  //estado del componente => datos del componente
 
+  const funcion = (id) =>{
+    console.log(`Se quiere borrar la tarea ${id}`);
+  }
 
   return (
     <>
+
       <ul className="tareas">
           {tareas.map(tarea => (
-          <Tarea key={tarea.id} tarea={tarea} />
+          <Tarea key={tarea.id} tarea={tarea} onDelete={funcion}/>
           ))}
       </ul>
     </>
