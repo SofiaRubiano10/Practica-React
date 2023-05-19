@@ -15,10 +15,15 @@ function App() {
     {id:3, titulo: "Reading"},
     {id:4, titulo: "Swimming"},
   ]);
+
+  const funcion = (id) =>{
+    console.log(`Se va a eliminar la tarea ${id}`);
+  }
+
   return (
   <>
     <Header titulo="Administrador de tareas" />
-    <Tareas tareas={tareas} />
+    <Tareas tareas={tareas} onDelete={funcion}/>
   </>
   )
 }
