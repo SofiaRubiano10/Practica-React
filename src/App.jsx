@@ -8,22 +8,26 @@ import Tareas from "./components/Tareas"
 import "./styles/style.scss"
 // componente basado en función
 function App() {
-  //estado del componente
-  const [tareas] = useState([
+  //estado del componente: inmutable
+  const [tareas, setTareas] = useState([
     {id:1, titulo: "Running"},
     {id:2, titulo: "Programing"},
     {id:3, titulo: "Reading"},
     {id:4, titulo: "Swimming"},
   ]);
 
-  const funcion = (id) =>{
-    console.log(`Se va a eliminar la tarea ${id}`);
+  const eliminarTarea = (id) =>{
+    //tareas actuales representa el estado actual 
+    setTareas(tareasActuales =>{
+      //filtra las tareas sin la tarea con el id recibido
+      return tareasActuales.filter((tarea) => tarea.id !== id)
+    });
   }
 
   return (
   <>
     <Header titulo="Administrador de tareas" />
-    <Tareas tareas={tareas} onDelete={funcion}/>
+    <Tareas tareas={tareas} onDelete={eliminarTarea}/>
   </>
   )
 }

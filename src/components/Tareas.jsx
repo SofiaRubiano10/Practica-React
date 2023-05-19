@@ -4,7 +4,7 @@ const Tareas = ({tareas, onDelete}) => {
 
   return (
     <>
-
+      {!tareas.length && "No hay tareas"}
       <ul className="tareas">
           {tareas.map(tarea => (
           <Tarea key={tarea.id} tarea={tarea} onDelete={onDelete}/>
