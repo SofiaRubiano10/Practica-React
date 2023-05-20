@@ -7,7 +7,19 @@ ul.tareas{
         margin: 5px;
         display: flex;
         justify-content: space-between;
-        align-items: center
-    };
+        align-items: center;
 
+        .icono{
+            color: lightgreen;
+            font-size: 0.8 rem;
+            cursor: pointer;
+    
+            &:hover{
+                color: #63eb63;
+            }
+        }
+    };
+    .terminada{
+        background-color: #d2eb63;
+    }
 }
