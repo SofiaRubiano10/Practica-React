@@ -4,8 +4,10 @@ import { useState } from "react";
 //Componentes propios
 import Header from "./components/Header"
 import Tareas from "./components/Tareas"
+import AgregarTareaForm from "./components/AgregarTareaForm";
 //CSS
 import "./styles/style.scss"
+
 // componente basado en función
 function App() {
   //estado del componente: inmutable
@@ -35,6 +37,7 @@ function App() {
   return (
   <>
     <Header titulo="Administrador de tareas" />
+    <AgregarTareaForm />
     <Tareas tareas={tareas} onDelete={eliminarTarea} onToggle={toggleTerminada}/>
   </>
   )
