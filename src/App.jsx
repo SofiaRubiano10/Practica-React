@@ -11,12 +11,7 @@ import "./styles/style.scss"
 // componente basado en función
 function App() {
   //estado del componente: inmutable
-  const [tareas, setTareas] = useState([
-    {id:1, titulo: "Running", terminada: false},
-    {id:2, titulo: "Programing", terminada: true},
-    {id:3, titulo: "Reading", terminada: true},
-    {id:4, titulo: "Swimming", terminada: false},
-  ]);
+  const [tareas, setTareas] = useState([]);
 
   const eliminarTarea = (id) =>{
     //tareas actuales representa el estado actual 
@@ -34,10 +29,13 @@ function App() {
       tarea.id === id ? {...tarea, terminada: !tarea.terminada} : tarea)
     })
   }
+  const agregarTarea = (tarea) => {
+    setTareas([...tareas, tarea])
+  }
   return (
   <>
     <Header titulo="Administrador de tareas" />
-    <AgregarTareaForm />
+    <AgregarTareaForm onAddTask={agregarTarea} />
     <Tareas tareas={tareas} onDelete={eliminarTarea} onToggle={toggleTerminada}/>
   </>
   )
