@@ -8,14 +8,14 @@ ul.tareas{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        cursor: pointer;
 
         .icono{
             color: lightgreen;
             font-size: 0.8 rem;
-            cursor: pointer;
     
             &:hover{
-                color: #63eb63;
+                color: #30e230;
             }
         }
     };
