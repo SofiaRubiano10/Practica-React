@@ -23,11 +23,19 @@ function App() {
       return tareasActuales.filter((tarea) => tarea.id !== id)
     });
   }
-
+  const toggleTerminada = (id) =>{
+    //tareas actuales representa el estado actual 
+    setTareas((tareasActuales) =>{
+      //recorre las tareas actuales para retornar cada tarea
+      return tareasActuales.map((tarea )=> 
+      //verirfica si la tarea tiene el mismo id
+      tarea.id === id ? {...tarea, terminada: !tarea.terminada} : tarea)
+    })
+  }
   return (
   <>
     <Header titulo="Administrador de tareas" />
-    <Tareas tareas={tareas} onDelete={eliminarTarea}/>
+    <Tareas tareas={tareas} onDelete={eliminarTarea} onToggle={toggleTerminada}/>
   </>
   )
 }
