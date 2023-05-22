@@ -6,7 +6,7 @@ import Header from "./components/Header"
 import Tareas from "./components/Tareas"
 import Error from "./components/Error";
 import AgregarTareaForm from "./components/AgregarTareaForm";
-import { obtenerTareasAPI } from "./api/tareasApi";
+import { obtenerTareasAPI, agregarTareaAPI } from "./api/tareasApi";
 //SCSS
 import "./styles/style.scss"
 
@@ -19,9 +19,9 @@ function App() {
   // Hook que ejecuta codigo al crear componente
   useEffect(()=>{
     const obtenerTareas = async() =>{
-      const data = await obtenerTareasAPI();
-      if (data) {
-        setTareas(data)
+      const tareas = await obtenerTareasAPI();
+      if (tareas) {
+        setTareas(tareas)
       }else {
         setTareas([]);
         setError(true)
@@ -48,8 +48,9 @@ function App() {
       tarea.id === id ? {...tarea, terminada: !tarea.terminada} : tarea)
     })
   }
-  const agregarTarea = (tarea) => {
-    setTareas([...tareas, tarea])
+  const agregarTarea = async (tarea) => {
+    const nuevaTarea = await agregarTareaAPI(tarea)
+    setTareas([...tareas, nuevaTarea])
   }
   return (
   <>

@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { v4 as uuidv4 } from 'uuid';
 import PropTypes from "prop-types";
 
 
@@ -24,7 +23,6 @@ const AgregarTareaForm = ({onAddTask}) => {
 
         //crea el nuevo objeto
         const nuevaTarea = {
-            id: uuidv4(),
             titulo,
             terminada: false,
             
