@@ -36,7 +36,7 @@ const AgregarTareaForm = ({onAddTask}) => {
     }
 
     return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} autoComplete="off">
         <fieldset>
             <label htmlFor="titulo">Titulo</label>
             <input type="text" id="titulo" value={titulo} onChange={event => setTitulo(event.target.value)}/>

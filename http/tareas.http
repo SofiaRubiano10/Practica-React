@@ -1,0 +1,25 @@
+### Obtener todas las tareas
+GET http://localhost:3000/tareas/
+
+### Obtener una tarea
+GET http://localhost:3000/tareas/1
+
+### Crear tarea
+POST http://localhost:3000/tareas/
+content-type: application/json
+
+{
+    "titulo": "Watch Tangled",
+    "terminada": false,
+}
+
+### Modificar tarea
+PATCH http://localhost:3000/tareas/1
+content-type: application/json
+
+{
+    "terminada": true,
+}
+
+### Eliminar tarea
+DELETE http://localhost:3000/tareas/3
