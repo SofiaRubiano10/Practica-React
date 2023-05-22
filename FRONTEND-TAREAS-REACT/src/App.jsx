@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 //Componentes propios
 import Header from "./components/Header"
 import Tareas from "./components/Tareas"
+import Error from "./components/Error";
 import AgregarTareaForm from "./components/AgregarTareaForm";
 import { obtenerTareasAPI } from "./api/tareasApi";
 //SCSS
@@ -13,12 +14,18 @@ import "./styles/style.scss"
 function App() {
   //estado del componente: inmutable
   const [tareas, setTareas] = useState([]);
+  const [error, setError] = useState(false);
   
   // Hook que ejecuta codigo al crear componente
   useEffect(()=>{
     const obtenerTareas = async() =>{
       const data = await obtenerTareasAPI();
-      setTareas(data)
+      if (data) {
+        setTareas(data)
+      }else {
+        setTareas([]);
+        setError(true)
+      }
 
     }
     //obtiene las tareas del backend
@@ -48,6 +55,7 @@ function App() {
   <>
     <Header titulo="Administrador de tareas" />
     <AgregarTareaForm onAddTask={agregarTarea} />
+    {error && <Error mensaje="Hubo un error"/>}
     <Tareas tareas={tareas} onDelete={eliminarTarea} onToggle={toggleTerminada}/>
   </>
   )
