@@ -1,6 +1,11 @@
 {
   "tareas": [
     {
+      "id": 1,
+      "titulo": "Ver Rapunzel",
+      "terminada": true
+    },
+    {
       "id": 2,
       "titulo": "Programming",
       "terminada": true

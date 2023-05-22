@@ -1,6 +1,7 @@
 // importes
 //react 
 import { useEffect, useState } from "react";
+import axios from "axios";
 //Componentes propios
 import Header from "./components/Header"
 import Tareas from "./components/Tareas"
@@ -13,9 +14,25 @@ function App() {
   //estado del componente: inmutable
   const [tareas, setTareas] = useState([]);
   
-  //Ejecutar codigo al crear componente
+  // Hook que ejecuta codigo al crear componente
   useEffect(()=>{
-    console.log("componente creado!");
+    
+    const obtenerTareas = async() =>{
+      try {
+        const respuesta = await axios.get(" http://localhost:3000/tareas/");
+        if (respuesta.status === 200) {
+          setTareas(respuesta.data)
+        }
+      } catch (error) {
+        console.error("Hubo un error al obtener las tareas");
+      }
+
+    }
+
+
+    //obtiene las tareas del backend
+    obtenerTareas();
+
   }, []);
 
   const eliminarTarea = (id) =>{
