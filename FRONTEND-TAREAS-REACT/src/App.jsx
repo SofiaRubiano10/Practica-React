@@ -1,17 +1,22 @@
 // importes
 //react 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 //Componentes propios
 import Header from "./components/Header"
 import Tareas from "./components/Tareas"
 import AgregarTareaForm from "./components/AgregarTareaForm";
-//CSS
+//SCSS
 import "./styles/style.scss"
 
 // componente basado en función
 function App() {
   //estado del componente: inmutable
   const [tareas, setTareas] = useState([]);
+  
+  //Ejecutar codigo al crear componente
+  useEffect(()=>{
+    console.log("componente creado!");
+  }, []);
 
   const eliminarTarea = (id) =>{
     //tareas actuales representa el estado actual 
