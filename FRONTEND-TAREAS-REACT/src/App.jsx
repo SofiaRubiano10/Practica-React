@@ -1,11 +1,11 @@
 // importes
 //react 
 import { useEffect, useState } from "react";
-import axios from "axios";
 //Componentes propios
 import Header from "./components/Header"
 import Tareas from "./components/Tareas"
 import AgregarTareaForm from "./components/AgregarTareaForm";
+import { obtenerTareasAPI } from "./api/tareasApi";
 //SCSS
 import "./styles/style.scss"
 
@@ -16,23 +16,13 @@ function App() {
   
   // Hook que ejecuta codigo al crear componente
   useEffect(()=>{
-    
     const obtenerTareas = async() =>{
-      try {
-        const respuesta = await axios.get(" http://localhost:3000/tareas/");
-        if (respuesta.status === 200) {
-          setTareas(respuesta.data)
-        }
-      } catch (error) {
-        console.error("Hubo un error al obtener las tareas");
-      }
+      const data = await obtenerTareasAPI();
+      setTareas(data)
 
     }
-
-
     //obtiene las tareas del backend
     obtenerTareas();
-
   }, []);
 
   const eliminarTarea = (id) =>{
