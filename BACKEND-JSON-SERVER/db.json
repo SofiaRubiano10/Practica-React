@@ -1,16 +1,6 @@
 {
   "tareas": [
     {
-      "id": 1,
-      "titulo": "Ver Rapunzel",
-      "terminada": true
-    },
-    {
-      "id": 2,
-      "titulo": "Programming",
-      "terminada": true
-    },
-    {
       "id": 3,
       "titulo": "Swimming",
       "terminada": false
@@ -19,21 +9,6 @@
       "titulo": "Reading",
       "terminada": true,
       "id": 4
-    },
-    {
-      "titulo": "gg",
-      "terminada": false,
-      "id": 5
-    },
-    {
-      "titulo": "sprechen",
-      "terminada": false,
-      "id": 6
-    },
-    {
-      "titulo": "JJJ",
-      "terminada": false,
-      "id": 7
     }
   ]
 }

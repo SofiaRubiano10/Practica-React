@@ -6,7 +6,9 @@ import Header from "./components/Header"
 import Tareas from "./components/Tareas"
 import Error from "./components/Error";
 import AgregarTareaForm from "./components/AgregarTareaForm";
-import { obtenerTareasAPI, agregarTareaAPI } from "./api/tareasApi";
+
+//Funciones API
+import { obtenerTareasAPI, agregarTareaAPI, eliminarTareaAPI } from "./api/tareasApi";
 //SCSS
 import "./styles/style.scss"
 
@@ -32,13 +34,13 @@ function App() {
     obtenerTareas();
   }, []);
 
-  const eliminarTarea = (id) =>{
-    //tareas actuales representa el estado actual 
-    setTareas(tareasActuales =>{
-      //filtra las tareas sin la tarea con el id recibido
-      return tareasActuales.filter((tarea) => tarea.id !== id)
-    });
+  const agregarTarea = async (tarea) => {
+    //agrega la tarea e el Backend
+    const nuevaTarea = await agregarTareaAPI(tarea)
+    //Agrega la tarea en el state
+    setTareas([...tareas, nuevaTarea])
   }
+
   const toggleTerminada = (id) =>{
     //tareas actuales representa el estado actual 
     setTareas((tareasActuales) =>{
@@ -48,12 +50,21 @@ function App() {
       tarea.id === id ? {...tarea, terminada: !tarea.terminada} : tarea)
     })
   }
-  const agregarTarea = async (tarea) => {
-    const nuevaTarea = await agregarTareaAPI(tarea)
-    setTareas([...tareas, nuevaTarea])
+
+  const eliminarTarea = async (id) =>{
+    // elimina la tarea del Backend
+    const respuesta = await eliminarTareaAPI(id)
+    //verifica que la eliminación de la tarea haya sido exitosa
+    if (respuesta) {
+      //tareas actuales representa el estado actual 
+      setTareas(tareasActuales =>{
+        //filtra las tareas sin la tarea con el id recibido
+        return tareasActuales.filter((tarea) => tarea.id !== id)
+      });
+    }
   }
   return (
-  <>
+    <>
     <Header titulo="Administrador de tareas" />
     <AgregarTareaForm onAddTask={agregarTarea} />
     {error && <Error mensaje="Hubo un error"/>}

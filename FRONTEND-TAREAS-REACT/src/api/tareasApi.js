@@ -25,4 +25,18 @@ const agregarTareaAPI = async (tarea) => {
         return null;
     }
 }
-export {obtenerTareasAPI, agregarTareaAPI};
+//elimina la tarea del Backend
+const eliminarTareaAPI = async (id) =>{
+    try {
+        const respuesta = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}${id}`);
+        if (respuesta.status === 200) {
+            return respuesta.data
+        }
+        return null
+    } catch (error) {
+        console.error("Hubo un error al eliminar la tarea");
+        return null
+    }
+}
+
+export {obtenerTareasAPI, agregarTareaAPI, eliminarTareaAPI};
