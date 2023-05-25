@@ -13,7 +13,7 @@ import { obtenerTareasAPI, agregarTareaAPI, eliminarTareaAPI } from "./api/tarea
 import "./styles/style.scss"
 
 // componente basado en función
-function App() {
+const App = () => {
   //estado del componente: inmutable
   const [tareas, setTareas] = useState([]);
   const [error, setError] = useState(false);
@@ -21,6 +21,7 @@ function App() {
   // Hook que ejecuta codigo al crear componente
   useEffect(()=>{
     const obtenerTareas = async() =>{
+      // Obtiene las tareas del backend 
       const tareas = await obtenerTareasAPI();
       if (tareas) {
         setTareas(tareas)
@@ -42,6 +43,7 @@ function App() {
   }
 
   const toggleTerminada = (id) =>{
+    //TODO: ACTUALZAR LA TAREA EN EL BACKEND
     //tareas actuales representa el estado actual 
     setTareas((tareasActuales) =>{
       //recorre las tareas actuales para retornar cada tarea
