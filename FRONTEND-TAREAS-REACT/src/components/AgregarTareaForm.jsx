@@ -7,14 +7,8 @@ const AgregarTareaForm = ({onAddTask}) => {
     const [titulo,setTitulo] = useState("");
     const [longitud, setLongitud] = useState (0);
 
+    //Actualiza cantidad ed caracteres digitados 
     useEffect(() => {
-        console.log("Acaba de ser reenderizado");
-    })
-    useEffect(() => {
-        console.log("Solo se ejecuta al montar el componente");
-    }, [])
-    useEffect(() => {
-        console.log("Se ejecuta cuando cambia la variable 'Titulo'");
         setLongitud(titulo.length)
     }, [titulo])
 
