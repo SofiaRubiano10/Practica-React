@@ -6,11 +6,35 @@ import Header from "./components/Header"
 import Tareas from "./components/Tareas"
 import Error from "./components/Error";
 import AgregarTareaForm from "./components/AgregarTareaForm";
-
+//Contextos
+import LocalizationContext from "./context/LocalizationContext";
 //Funciones API
 import { obtenerTareasAPI, agregarTareaAPI, eliminarTareaAPI } from "./api/tareasApi";
 //SCSS
 import "./styles/style.scss"
+
+const local = {
+  es: {
+    header: "Administrador de Tareas",
+    title: "Titulo",
+    add: "Agregar",
+    reset: "Limpiar",
+    characters: "Caracteres"
+  },
+  en: {
+    header: "Task manager",
+    title: "Title",
+    add: "Add",
+    reset: "Reset",
+    characters: "Characters"
+
+  },
+  
+};
+
+
+
+
 
 // componente basado en función
 const App = () => {
@@ -67,10 +91,12 @@ const App = () => {
   }
   return (
     <>
-    <Header titulo="Administrador de tareas" />
-    <AgregarTareaForm onAddTask={agregarTarea} />
-    {error && <Error mensaje="Hubo un error"/>}
-    <Tareas tareas={tareas} onDelete={eliminarTarea} onToggle={toggleTerminada}/>
+    <LocalizationContext.Provider value={local.en}>
+      <Header titulo="Administrador de tareas" />
+      <AgregarTareaForm onAddTask={agregarTarea} />
+      {error && <Error mensaje="Hubo un error en conexion con Backend"/>}
+      <Tareas tareas={tareas} onDelete={eliminarTarea} onToggle={toggleTerminada}/>
+    </LocalizationContext.Provider>
   </>
   )
 }
