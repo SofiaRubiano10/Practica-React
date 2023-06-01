@@ -10,7 +10,6 @@ const AgregarTareaForm = ({onAddTask}) => {
 
     //Accede al context
     const local = useContext(LocalizationContext);
-    console.log(local);
 
     //Actualiza cantidad ed caracteres digitados 
     useEffect(() => {

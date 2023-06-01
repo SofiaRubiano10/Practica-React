@@ -91,8 +91,8 @@ const App = () => {
   }
   return (
     <>
-    <LocalizationContext.Provider value={local.en}>
-      <Header titulo="Administrador de tareas" />
+    <LocalizationContext.Provider value={local.es}>
+      <Header/>
       <AgregarTareaForm onAddTask={agregarTarea} />
       {error && <Error mensaje="Hubo un error en conexion con Backend"/>}
       <Tareas tareas={tareas} onDelete={eliminarTarea} onToggle={toggleTerminada}/>
