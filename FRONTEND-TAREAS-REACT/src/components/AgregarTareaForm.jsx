@@ -9,7 +9,7 @@ const AgregarTareaForm = ({onAddTask}) => {
     const [longitud, setLongitud] = useState (0);
 
     //Accede al context
-    const local = useContext(LocalizationContext);
+    const {language} = useContext(LocalizationContext);
 
     //Actualiza cantidad ed caracteres digitados 
     useEffect(() => {
@@ -47,13 +47,13 @@ const AgregarTareaForm = ({onAddTask}) => {
     return (
     <form onSubmit={handleSubmit} autoComplete="off">
         <fieldset>
-            <label htmlFor="titulo">{local.title}:</label>
+            <label htmlFor="titulo">{language.title}:</label>
             <input type="text" id="titulo" value={titulo} onChange={event => setTitulo(event.target.value)}/>
-            <p>{local.characters}: {longitud}</p>
+            <p>{language.characters}: {longitud}</p>
         </fieldset>
         <fieldset>
-            <input type="submit" value={local.add}/>
-            <button onClick={limpiarFormulario}>{local.reset}</button>
+            <input type="submit" value={language.add}/>
+            <button onClick={limpiarFormulario}>{language.reset}</button>
         </fieldset>
     </form>
   )

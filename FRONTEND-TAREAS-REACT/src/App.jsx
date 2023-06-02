@@ -71,17 +71,10 @@ const App = () => {
     }
   }
 
-  const handlerLanguageChange = (language) => {
-    if (language === 'es') {
-      setLanguage(local.es)
-    }if (language === 'en'){
-      setLanguage(local.en)
-    }
-  }
   return (
     <>
-    <LocalizationContext.Provider value={language}>
-      <SelectLanguage onLanguagueChange={handlerLanguageChange}/>
+    <LocalizationContext.Provider value={{language, setLanguage}}>
+      <SelectLanguage/>
       <Header/>
       <AgregarTareaForm onAddTask={agregarTarea} />
       {error && <Error mensaje="Hubo un error en conexion con Backend"/>}

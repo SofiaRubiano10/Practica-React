@@ -1,17 +1,27 @@
-import PropTypes from "prop-types"
-const SelectLanguage = ({onLanguagueChange}) => {
-  
+import { useContext } from "react";
 
-  
+//Acceso al contexto
+import LocalizationContext from "../context/LocalizationContext";
+import local from "../context/ContextData";
+
+const SelectLanguage = () => {
+    // Obtiene la referencia al contexto
+    const {setLanguage} = useContext(LocalizationContext);
+
+    const handleChangeLanguage = (lang) =>{
+        if (lang === 'es') {
+            setLanguage(local.es)
+        }
+        if (lang === 'en') {
+            setLanguage(local.en)
+        }
+    }
     return (
     <div className="languages">
-        <span onClick={() => onLanguagueChange("es")}>🟥</span>
-        <span onClick={() => onLanguagueChange("en")}>🟦</span>
+        <span onClick={() => handleChangeLanguage("es")}>🟥</span>
+        <span onClick={() => handleChangeLanguage("en")}>🟦</span>
     </div>
   )
 }
 
-SelectLanguage.propTypes ={
-    onLanguagueChange: PropTypes.func
-}
 export default SelectLanguage
