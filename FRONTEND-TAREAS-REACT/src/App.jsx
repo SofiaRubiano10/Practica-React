@@ -9,32 +9,11 @@ import AgregarTareaForm from "./components/AgregarTareaForm";
 import SelectLanguage from "./components/SelectLanguage";
 //Contextos
 import LocalizationContext from "./context/LocalizationContext";
+import local from "./context/ContextData";
 //Funciones API
 import { obtenerTareasAPI, agregarTareaAPI, eliminarTareaAPI } from "./api/tareasApi";
 //SCSS
 import "./styles/style.scss"
-
-const local = {
-  es: {
-    header: "Administrador de Tareas",
-    title: "Titulo",
-    add: "Agregar",
-    reset: "Limpiar",
-    characters: "Caracteres"
-  },
-  en: {
-    header: "Task manager",
-    title: "Title",
-    add: "Add",
-    reset: "Reset",
-    characters: "Characters"
-
-  },
-  
-};
-
-
-
 
 
 // componente basado en función
