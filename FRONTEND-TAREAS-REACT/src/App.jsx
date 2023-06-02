@@ -22,8 +22,6 @@ import "./styles/style.scss"
 
 // componente basado en función
 const App = () => {
-  //estado del componente: inmutable
-  // const [tareas, setTareas] = useState([]);
   const [tareas, dispatch] = useReducer(tareasReducer, [])
   const [error, setError] = useState(false);
   const [language, setLanguage] = useState(local.es);
@@ -34,10 +32,10 @@ const App = () => {
       // Obtiene las tareas del backend 
       const tareas = await obtenerTareasAPI();
       if (tareas) {
-        // setTareas(tareas)
+        // modifica el state
         dispatch({type: "CARGAR", tareas})
       }else {
-        // setTareas([]);
+        // modifica el state
         dispatch({type: "CARGAR" });
         setError(true)
       }
@@ -51,19 +49,12 @@ const App = () => {
     //agrega la tarea e el Backend
     const nuevaTarea = await agregarTareaAPI(tarea)
     //Agrega la tarea en el state
-    // setTareas([...tareas, nuevaTarea])
     dispatch({type: "AGREGAR", nuevaTarea})
   }
 
   const toggleTerminada = (id) =>{
     //TODO: ACTUALZAR LA TAREA EN EL BACKEND
-    //tareas actuales representa el estado actual 
-    // setTareas((tareasActuales) =>{
-    //   //recorre las tareas actuales para retornar cada tarea
-    //   return tareasActuales.map((tarea )=> 
-    //   //verirfica si la tarea tiene el mismo id
-    //   tarea.id === id ? {...tarea, terminada: !tarea.terminada} : tarea)
-    // })
+    //Modifica el state
     dispatch({type: "MODIFICAR",id})
   }
 
@@ -72,11 +63,7 @@ const App = () => {
     const respuesta = await eliminarTareaAPI(id)
     //verifica que la eliminación de la tarea haya sido exitosa
     if (respuesta) {
-      //tareas actuales representa el estado actual 
-      // setTareas(tareasActuales =>{
-      //   //filtra las tareas sin la tarea con el id recibido
-      //   return tareasActuales.filter((tarea) => tarea.id !== id)
-      // });
+      //Modifica el state
       dispatch({type: "ELIMINAR", id})
     }
   }
