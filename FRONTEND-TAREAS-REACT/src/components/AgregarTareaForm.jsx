@@ -1,11 +1,16 @@
 import { useEffect, useState, useContext } from "react"
 import PropTypes from "prop-types";
+
+//Importar custom Hook
+import useInput from "../hooks/useinput";
 //acceso al context
 import LocalizationContext from "../context/LocalizationContext";
 
 const AgregarTareaForm = ({onAddTask}) => {
-    //estado del formulario
-    const [titulo,setTitulo] = useState("");
+    //Estado del formulaio con custum hook
+    const [titulo, bindTitulo, resetTitulo] = useInput("");
+    const [descripcion, bindDescripcion, resetDescripcion] = useInput("");
+    //Estado del formulario con useState
     const [longitud, setLongitud] = useState (0);
 
     //Accede al context
@@ -21,7 +26,8 @@ const AgregarTareaForm = ({onAddTask}) => {
         //previene el envio del formulario
         event.preventDefault();
         //modifica el estado del componente
-        setTitulo("")
+        resetTitulo("");
+        resetDescripcion("");
     }
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -35,21 +41,35 @@ const AgregarTareaForm = ({onAddTask}) => {
         //crea el nuevo objeto
         const nuevaTarea = {
             titulo,
+            descripcion,
             terminada: false,
             
         }
         //envia la nueva tarea al componente padre
         onAddTask(nuevaTarea);
         //modifica el estado del componente
-        setTitulo("")
+        resetTitulo("");
+        resetDescripcion("");
     }
 
     return (
     <form onSubmit={handleSubmit} autoComplete="off">
         <fieldset>
             <label htmlFor="titulo">{language.title}:</label>
-            <input type="text" id="titulo" value={titulo} onChange={event => setTitulo(event.target.value)}/>
+            <input 
+                type="text" 
+                id="titulo" 
+                {...bindTitulo}  
+            />
             <p>{language.characters}: {longitud}</p>
+        </fieldset>
+        <fieldset>
+            <label htmlFor="descripcion">{language.descripcion}:</label>
+            <input 
+                type="text" 
+                id="descripcion" 
+                {...bindDescripcion}
+            />
         </fieldset>
         <fieldset>
             <input type="submit" value={language.add}/>

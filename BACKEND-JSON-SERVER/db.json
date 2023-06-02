@@ -21,9 +21,10 @@
       "id": 6
     },
     {
-      "titulo": "leer",
+      "titulo": "hacer lista de mis tareas",
+      "descripcion": "escribir en mi libreta todas mis tareas",
       "terminada": false,
-      "id": 7
+      "id": 9
     }
   ]
 }

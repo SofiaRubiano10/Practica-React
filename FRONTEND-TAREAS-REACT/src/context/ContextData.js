@@ -4,14 +4,16 @@ const local = {
         title: "Titulo",
         add: "Agregar",
         reset: "Limpiar",
-        characters: "Caracteres"
+        characters: "Caracteres",
+        descripcion: "Comentarios"
     },
     en: {
         header: "Task manager",
         title: "Title",
         add: "Add",
         reset: "Reset",
-        characters: "Characters"
+        characters: "Characters",
+        descripcion: "Comments"
 
     },
     de: {
@@ -19,7 +21,8 @@ const local = {
         title: "Titel",
         add: "Hinzufügen",
         reset: "Löschen ",
-        characters: "Charakteren"
+        characters: "Charakteren",
+        descripcion: "Kommentare"
 
     },
 };
