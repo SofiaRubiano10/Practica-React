@@ -14,6 +14,14 @@ const local = {
         characters: "Characters"
 
     },
+    de: {
+        header: "Die Aufgaben",
+        title: "Titel",
+        add: "Hinzufügen",
+        reset: "Löschen ",
+        characters: "Charakteren"
+
+    },
 };
   
 export default local;

@@ -9,17 +9,13 @@ const SelectLanguage = () => {
     const {setLanguage} = useContext(LocalizationContext);
 
     const handleChangeLanguage = (lang) =>{
-        if (lang === 'es') {
-            setLanguage(local.es)
-        }
-        if (lang === 'en') {
-            setLanguage(local.en)
-        }
+        setLanguage(local[lang])
     }
     return (
     <div className="languages">
         <span onClick={() => handleChangeLanguage("es")}>🟥</span>
         <span onClick={() => handleChangeLanguage("en")}>🟦</span>
+        <span onClick={() => handleChangeLanguage("de")}>⬛</span>
     </div>
   )
 }
